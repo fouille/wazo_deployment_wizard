@@ -101,19 +101,19 @@
 									<h3 class="main_question"><strong>2/6</strong>Quel type de déploiement réalisez vous ?</h3>
 									<div class="form-group">
 										<label class="container_radio version_2">Wazo UC Engine sur site (On Premise)
-											<input type="radio" name="question_1" value="Not Satisfied" class="required" onchange="getVals(this, 'question_1');">
+											<input type="radio" name="question_1" value="On Premise" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud (NATé)
-											<input type="radio" name="question_1" value="Quite Satisfied" class="required" onchange="getVals(this, 'question_1');">
+											<input type="radio" name="question_1" value="Cloud NATé" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud (IP Publique porté)
-											<input type="radio" name="question_1" value="Quite Satisfied" class="required" onchange="getVals(this, 'question_1');">
+											<input type="radio" name="question_1" value="CloudPublicIP" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
@@ -311,25 +311,25 @@
 	<!-- Wizard script -->
 	<script src="js/survey_func.js"></script>
 	<script>
-			$(document).ready(function() {
-					$("#process").on('click', function (e) {
-							e.preventDefault();
-							$.ajax({
-									url: "app/sendmail.php",
-									type: "POST",
-									data: $("#wrapped").serialize(),
-									dataType: "json",
-									global: false,
-									success: function (r) {
-											console.log(r);
-											if (r == true){
-												$("#process, #backward").attr("disabled", true);
-												$("#bottom-wizard").html("Merci !");
-											}
-									}
-							})
-					})
-			});
+		$(document).ready(function() {
+			$("#process").on('click', function (e) {
+				e.preventDefault();
+				$.ajax({
+					url: "app/sendmail.php",
+					type: "POST",
+					data: $("#wrapped").serialize(),
+					dataType: "json",
+					global: false,
+					success: function (r) {
+						//console.log(r);
+						if (r == true){
+							$("#process, #backward").attr("disabled", true);
+							$("#bottom-wizard").html("<strong>Merci !</strong>");
+						}
+					}
+				})
+			})
+		});
 	</script>
 </body>
 </html>

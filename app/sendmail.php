@@ -9,8 +9,18 @@ $message .= "\nFirst name: " . $_POST['firstname'];
 $message .= "\nLast name: " . $_POST['lastname'];
 $message .= "\nEmail: " . $_POST['email'];
 $message .= "\nFonction: " . $_POST['fonction'];
-$message .= "\nSociety: " . $_POST['society'];
-
+$message .= "\nType Infra : " . $_POST['question_1'];
+$message .= "\nInfra info : " . $_POST['deploy_info'];
+$message .= "\nTechnologie : " . $_POST['uce_infra_tech'];
+$message .= "\nProvider : " . $_POST['uce_infra_provider'];
+$message .= "\nNom de produit : " . $_POST['uce_infra_productname'];
+$message .= "\nEngine Abonnés : " . $_POST['uce_carac_user'];
+$message .= "\nEngine RAM : " . $_POST['uce_carac_ram'];
+$message .= "\nEngine Reseau : " . $_POST['uce_carac_network'];
+$message .= "\nEngine type HDD : " . $_POST['uce_carac_hddtype'];
+$message .= "\nEngine Stockage : " . $_POST['uce_carac_hddsize'];
+$message .= "\nPorts Cloud : " . $_POST['question_2[]'];
+$message .= "\nPorts on Premise : " . $_POST['question_3[]'];
 //Receive Variable
 
 //Confirmation page
