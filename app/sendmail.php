@@ -17,7 +17,7 @@ array_push($tab, $message);
 //Confirmation page
 $user = "$mail";
 $usersubject = "Merci !";
-$userheaders = "From: contact@wazo.io\n";
+$userheaders = "From: pbx@wazo.io\n";
 /*$usermessage = "Thank you for your time. Your quotation request is successfully submitted.\n"; WITH OUT SUMMARY*/
 //Confirmation page WITH  SUMMARY
 $usermessage = "Thank you for your time. Your request is successfully submitted. We will reply shortly.\n\nBELOW A SUMMARY\n\n$message";
