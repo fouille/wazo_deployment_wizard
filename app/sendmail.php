@@ -1,9 +1,9 @@
 <?php
 $tab = array();
 $mail = $_POST['email'];
-$to = "fmuller@wazo.io";/* YOUR EMAIL HERE */
+$to = "franckisys@wazo.io";/* YOUR EMAIL HERE */
 $subject = "Wizard Deployment Setup";
-$headers = "From: pbx@wazo.io";
+$headers = "From: Wizard Deployment <fmuller@wazo.io>";
 $message = "DETAILS\n";
 $message .= "\nFirst name: " . $_POST['firstname'];
 $message .= "\nLast name: " . $_POST['lastname'];
