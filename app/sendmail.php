@@ -22,7 +22,8 @@ $userheaders = "From: Wazo Deployment Wizard <pbx@wazo.io>\n";
 $usermessage = "Thank you for your time. Your request is successfully submitted. We will reply shortly.\n\nBELOW A SUMMARY\n\n$message";
 
 if (mail($wazo,$subject,$message,$headers) == true) {
-mail($user,$usersubject,$usermessage,$userheaders);
+$send = mail($user,$usersubject,$usermessage,$userheaders);
+echo json_encode($send);
 }
 
 ?>

@@ -278,8 +278,8 @@
 							</div>
 							<!-- /middle-wizard -->
 							<div id="bottom-wizard">
-								<button type="button" name="backward" class="backward">Précédent</button>
-								<button type="button" name="forward" class="forward">Suivant</button>
+								<button type="button" id="backward" name="backward" class="backward">Précédent</button>
+								<button type="button" id="forward" name="forward" class="forward">Suivant</button>
 								<button type="button" id="process" name="process" class="submit">Envoyer</button>
 							</div>
 							<!-- /bottom-wizard -->
@@ -354,6 +354,10 @@
                                         global: false,
                                         success: function (r) {
                                                 console.log(r);
+                                                if (r == true){
+                                                	$("#process, #backward").attr("disabled", true);
+                                                	$("#bottom-wizard").html("Merci !")
+												}
                                         }
                                 })
                         })
