@@ -301,8 +301,6 @@
 		<span></span>
 	</div>
 	<!-- /cd-overlay-content -->
-
-
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -312,53 +310,26 @@
 
 	<!-- Wizard script -->
 	<script src="js/survey_func.js"></script>
-
 	<script>
-		$(document).ready(function() {
-			$("#process").on('click', function (e) {
-				e.preventDefault();
-				$.ajax({
-					url: "app/sendmail.php",
-					type: "POST",
-					data: $("#wrapped").serialize(),
-					dataType: "json",
-					global: false,
-					success: function (r) {
-						console.log(r);
-					}
-				})
-			})
-		});
+			$(document).ready(function() {
+					$("#process").on('click', function (e) {
+							e.preventDefault();
+							$.ajax({
+									url: "app/sendmail.php",
+									type: "POST",
+									data: $("#wrapped").serialize(),
+									dataType: "json",
+									global: false,
+									success: function (r) {
+											console.log(r);
+											if (r == true){
+												$("#process, #backward").attr("disabled", true);
+												$("#bottom-wizard").html("Merci !");
+											}
+									}
+							})
+					})
+			});
 	</script>
-	
-	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/common_scripts.min.js"></script>
-	<script src="js/velocity.min.js"></script>
-	<script src="js/functions.js"></script>
-
-	<!-- Wizard script -->
-	<script src="js/survey_func.js"></script>
-        <script>
-                $(document).ready(function() {
-                        $("#process").on('click', function (e) {
-                                e.preventDefault();
-                                $.ajax({
-                                        url: "app/sendmail.php",
-                                        type: "POST",
-                                        data: $("#wrapped").serialize(),
-                                        dataType: "json",
-                                        global: false,
-                                        success: function (r) {
-                                                console.log(r);
-                                                if (r == true){
-                                                	$("#process, #backward").attr("disabled", true);
-                                                	$("#bottom-wizard").html("Merci !");
-												}
-                                        }
-                                })
-                        })
-                });
-        </script>
 </body>
 </html>
