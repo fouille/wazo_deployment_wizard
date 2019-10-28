@@ -3,7 +3,7 @@ $tab = array();
 $mail = $_POST['email'];
 $to = "fmuller@wazo.io";/* YOUR EMAIL HERE */
 $subject = "Wizard Deployment Setup";
-$headers = "From: Wizard Deployment <fmuller@wazo.io>";
+$headers = "From: pbx@wazo.io";
 $message = "DETAILS\n";
 $message .= "\nFirst name: " . $_POST['firstname'];
 $message .= "\nLast name: " . $_POST['lastname'];
@@ -13,7 +13,7 @@ $message .= "\nSociety: " . $_POST['society'];
 
 //Receive Variable
 $sentOk = mail($to,$subject,$message,$headers);
-mail($to,$subject,$message,$headers);
+//mail($to,$subject,$message,$headers);
 array_push($tab, $message);
 //Confirmation page
 $user = "$mail";
