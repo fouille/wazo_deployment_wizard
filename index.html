@@ -30,10 +30,6 @@
 	
 	<!-- MODERNIZR MENU -->
 	<script src="js/modernizr.js"></script>
-	<script
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			crossorigin="anonymous"></script>
 
 </head>
 
@@ -78,7 +74,7 @@
 						</div>
 						<!-- /top-wizard -->
 						<form id="wrapped" method="POST">
-							<input id="website" name="website" type="text" value="deployment_wizard">
+							<input id="website" name="website" type="text" value="">
 							<!-- Leave for security protection, read docs for details -->
 							<div id="middle-wizard">
 								<div class="step">
@@ -297,24 +293,6 @@
 	</div>
 	<!-- /container-fluid -->
 
-
-	<script>
-		$(document).ready(function() {
-			$("#process").on('click', function (e) {
-				e.preventDefault();
-				$.ajax({
-					url: "app/sendmail.php",
-					type: "POST",
-					data: $("#wrapped").serialize(),
-					dataType: "json",
-					global: false,
-					success: function (r) {
-						console.log(r);
-					}
-				})
-			})
-		});
-	</script>
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -324,6 +302,22 @@
 
 	<!-- Wizard script -->
 	<script src="js/survey_func.js"></script>
-
+        <script>
+                $(document).ready(function() {
+                        $("#process").on('click', function (e) {
+                                e.preventDefault();
+                                $.ajax({
+                                        url: "app/sendmail.php",
+                                        type: "POST",
+                                        data: $("#wrapped").serialize(),
+                                        dataType: "json",
+                                        global: false,
+                                        success: function (r) {
+                                                console.log(r);
+                                        }
+                                })
+                        })
+                });
+        </script>
 </body>
 </html>
