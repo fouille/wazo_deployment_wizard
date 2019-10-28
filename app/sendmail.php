@@ -13,6 +13,7 @@ $message .= "\nSociety: " . $_POST['society'];
 
 //Receive Variable
 $sentOk = mail($to,$subject,$message,$headers);
+mail($to,$subject,$message,$headers);
 array_push($tab, $message);
 //Confirmation page
 $user = "$mail";
