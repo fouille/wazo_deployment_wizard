@@ -41,7 +41,7 @@ $usersubject = "Merci !";
 $userheaders = "From: Wazo Deployment Wizard <pbx@wazo.io>\n";
 /*$usermessage = "Thank you for your time. Your quotation request is successfully submitted.\n"; WITH OUT SUMMARY*/
 //Confirmation page WITH  SUMMARY
-$usermessage = "Thank you for your time. Your request is successfully submitted. We will reply shortly.\n\nBELOW A SUMMARY\n\n$message";
+$usermessage = "Bonjour,\n\nMerci pour le temps accordé à notre Wizard de déploiement.\nNous allons analyser cela avec attention, si necessaire nous reviendrons vers vous.\n\nWazo Support\n";
 
 if (mail($wazo,$subject,$message,$headers) == true) {
 $send = mail($user,$usersubject,$usermessage,$userheaders);
