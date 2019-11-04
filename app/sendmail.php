@@ -1,6 +1,12 @@
 <?php
 $mail = $_POST['email'];
 
+$ports_cloud = '';
+for($count = 0; $count<count($_POST['question_2']); $count++)
+{
+    $ports_cloud .= $_POST['question_2'][$count].',';
+}
+
 $wazo = "fmuller@wazo.io\n";
 $subject = "Wizard Deployment Setup";
 $headers = "From: Wizard Deployment <pbx@wazo.io>\n";
@@ -19,8 +25,8 @@ $message .= "\nEngine RAM : " . $_POST['uce_carac_ram'];
 $message .= "\nEngine Reseau : " . $_POST['uce_carac_network'];
 $message .= "\nEngine type HDD : " . $_POST['uce_carac_hddtype'];
 $message .= "\nEngine Stockage : " . $_POST['uce_carac_hddsize'];
-$message .= "\nPorts Cloud : " . $_POST['question_2[]'];
-$message .= "\nPorts on Premise : " . $_POST['question_3[]'];
+$message .= "\nPorts Cloud : " . $ports_cloud;
+$message .= "\nPorts on Premise : " . $_POST['question_3'];
 //Receive Variable
 
 //Confirmation page
@@ -33,7 +39,7 @@ $usermessage = "Thank you for your time. Your request is successfully submitted.
 
 if (mail($wazo,$subject,$message,$headers) == true) {
 $send = mail($user,$usersubject,$usermessage,$userheaders);
-echo json_encode($send);
+echo json_encode($ports_cloud);
 }
 
 ?>

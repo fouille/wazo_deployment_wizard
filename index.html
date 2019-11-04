@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Wazo Deployment.">
-    <meta name="author" content="Ansonika">
+    <meta name="author" content="MULLER Franck">
     <title>Wazo Wizard Deployment</title>
 
     <!-- Favicons-->
@@ -57,11 +57,11 @@
 					<!-- /social -->
 					<div>
 						<figure><img src="img/info_graphic_1.svg" alt="" class="img-fluid"></figure>
-						<h2>Wazo Wizard de Déploiement</h2>
-						<p>Ce wizard vous permet de vous assister pas à pas au déploiement d'engine Wazo Enterprise.</p>
+						<h2>Wizard de Déploiement</h2>
+						<p>Ce wizard vous assistes pas à pas dans le déploiement d'engine <br> Wazo Enterprise Unifed Communication.</p>
 						<a href="#start" class="btn_1 rounded mobile_btn">Go !</a>
 					</div>
-					<div class="copy">© 2019 - Franck MULLER - Wazo Enterprise</div>
+					<div class="copy"></div>
 				</div>
 				<!-- /content-left-wrapper -->
 			</div>
@@ -70,6 +70,7 @@
 			<div class="col-lg-6 content-right" id="start">
 				<div id="wizard_container">
 					<div id="top-wizard">
+							<div id="location"></div>
 							<div id="progressbar"></div>
 						</div>
 						<!-- /top-wizard -->
@@ -78,7 +79,7 @@
 							<!-- Leave for security protection, read docs for details -->
 							<div id="middle-wizard">
 								<div class="step">
-									<h3 class="main_question"><strong>1/6</strong>Nous devons vous connaitre</h3>
+									<h3 class="main_question">Présentez vous</h3>
 									<div class="form-group">
 										<input type="text" name="firstname" class="form-control required" placeholder="Prénom" autocomplete="off">
 									</div>
@@ -98,37 +99,56 @@
 								</div>
 								<!-- /step-->
 								<div class="step">
-									<h3 class="main_question"><strong>2/6</strong>Quel type de déploiement réalisez vous ?</h3>
+									<h3 class="main_question">Quel type de déploiement réalisez vous ?</h3>
 									<div class="form-group">
-										<label class="container_radio version_2">Wazo UC Engine sur site (On Premise)
+										<label class="container_radio version_2">Wazo UC Engine sur site <br>(On Premise/Appliance)
 											<input type="radio" name="question_1" value="On Premise" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
-										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud (NATé)
+										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud <br>(NAT)
 											<input type="radio" name="question_1" value="Cloud NATé" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
-										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud (IP Publique porté)
+										<label class="container_radio version_2">Wazo UC Engine Public/Private Cloud <br>(IP Publique portée)
 											<input type="radio" name="question_1" value="CloudPublicIP" class="required" onchange="getVals(this, 'question_1');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
+								</div>
+								<!-- /step-->
+								<div class="step">
+									<h3 class="main_question">Quel est le besoin de ce déploiement ?</h3>
 									<div class="form-group">
-										<input type="text" name="deploy_info" class="form-control required" placeholder="Quel type de déploiement (client, demo, besoin personnel...)" autocomplete="off">
+										<label class="container_radio version_2">Client (Mono/Multi tenant)
+											<input type="radio" name="question_3" value="Client (Mono/Multi tenant) " class="required" onchange="getVals(this, 'question_3');">
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="form-group">
+										<label class="container_radio version_2">Démonstration
+											<input type="radio" name="question_3" value="Demonstration" class="required" onchange="getVals(this, 'question_3');">
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="form-group">
+										<label class="container_radio version_2">Besoin interne
+											<input type="radio" name="question_3" value="Besoin interne" class="required" onchange="getVals(this, 'question_3');">
+											<span class="checkmark"></span>
+										</label>
 									</div>
 								</div>
 								<!-- /step-->
 								<div class="step">
-									<h3 class="main_question"><strong>3/6</strong>Votre infrastructure</h3>
+									<h3 class="main_question">Votre infrastructure</h3>
 									<div class="form-group">
 										<input type="text" name="uce_infra_tech" class="form-control required" placeholder="Technologie utilisée (Marque, Virtualisation...)" autocomplete="off">
 									</div>
 									<div class="form-group">
-										<input type="text" name="uce_infra_provider" class="form-control required" placeholder="Nom de l'hébergeur (Google, AWS...)" autocomplete="off">
+										<input type="text" name="uce_infra_provider" class="form-control" placeholder="Nom de l'hébergeur (Google, AWS...)" autocomplete="off">
 									</div>
 									<div class="form-group">
 										<input type="text" name="uce_infra_productname" class="form-control" placeholder="Nom du produit (PCC, VPS...)" autocomplete="off">
@@ -137,7 +157,7 @@
 								</div>
 								<!-- /step-->
 								<div class="step">
-									<h3 class="main_question"><strong>4/6</strong>Les caractéristiques de votre UC Engine</h3>
+									<h3 class="main_question">Les caractéristiques de votre UC Engine</h3>
 									<small>Guide : <a href="https://support.wazo.io/hc/en-us/articles/360030999052" target="_blank"> https://support.wazo.io/hc/en-us/articles/360030999052</a></small>
 									<div class="form-group">
 										<input type="number" name="uce_carac_user" class="form-control required" placeholder="Nombre d'utilisateurs" autocomplete="off">
@@ -158,119 +178,136 @@
 								</div>
 								<!-- /step-->
 								<div class="step">
-									<h3 class="main_question"><strong>5/6</strong>NAT et ouverture de ports (PrivateCloud)</h3>
+									<h3 class="main_question">NAT et ouverture de ports (PrivateCloud)</h3>
 									<small>Guide : <a href="https://support.wazo.io/hc/en-us/articles/360025247452-Network-Port-Firewall">https://support.wazo.io/hc/en-us/articles/360025247452-Network-Port-Firewall</a> </small>
 									<div class="form-group">
 										<label class="container_check version_2">HTTPS (TCP 443) | Nestbox + Songbird Apps
-											<input type="checkbox" name="question_2[]" value="HTTPS" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="HTTPS" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">SIP (UDP 5060) | Asterisk
-											<input type="checkbox" name="question_2[]" value="SIP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="SIP" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">RTP (UDP 10000-20000) | Asterisk
-											<input type="checkbox" name="question_2[]" value="RTP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="RTP" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Provisioning (TCP 8667)
-											<input type="checkbox" name="question_2[]" value="PROV" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="PROV" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Directory (TCP 9498) | Annuaire poste(s) fixe(s)
-											<input type="checkbox" name="question_2[]" value="PHONED" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="PHONED" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">NTP (UDP 123) | UC Engine NTP
-											<input type="checkbox" name="question_2[]" value="NTP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="NTP" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Je ne suis pas concerné
-											<input type="checkbox" name="question_2[]" value="NOCONCERN" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_6[]" value="NOCONCERN" class="required" onchange="getVals(this, 'question_6');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 								</div>
 								<!-- /step-->
 								<div class="step">
-									<h3 class="main_question"><strong>6/6</strong>NAT et ouverture de ports (On Premise)</h3>
+									<h3 class="main_question">NAT et ouverture de ports (On Premise)</h3>
 									<small>Guide : <a href="https://support.wazo.io/hc/en-us/articles/360025247452-Network-Port-Firewall">https://support.wazo.io/hc/en-us/articles/360025247452-Network-Port-Firewall</a> </small>
 									<div class="form-group">
 										<label class="container_check version_2">HTTPS (TCP 443) | Nestbox + Songbird Apps
-											<input type="checkbox" name="question_3[]" value="HTTPS" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="HTTPS" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">SIP (UDP 5060) | Asterisk
-											<input type="checkbox" name="question_3[]" value="SIP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="SIP" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">RTP (UDP 10000-20000) | Asterisk
-											<input type="checkbox" name="question_3[]" value="RTP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="RTP" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Provisioning (TCP 8667)
-											<input type="checkbox" name="question_3[]" value="PROV" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="PROV" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Directory (TCP 9498) | Annuaire poste(s) fixe(s)
-											<input type="checkbox" name="question_3[]" value="PHONED" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="PHONED" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">NTP (UDP 123) | UC Engine NTP
-											<input type="checkbox" name="question_3[]" value="NTP" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="NTP" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 									<div class="form-group">
 										<label class="container_check version_2">Je ne suis pas concerné
-											<input type="checkbox" name="question_3[]" value="NOCONCERN" class="required" onchange="getVals(this, 'question_2');">
+											<input type="checkbox" name="question_7[]" value="NOCONCERN" class="required" onchange="getVals(this, 'question_7');">
 											<span class="checkmark"></span>
 										</label>
 									</div>
 								</div>
 								<!-- /step-->
+								<div class="step">
+									<h3 class="main_question">Quel est votre opérateur de Trunk</h3>
+									<div class="form-group">
+										<div class="styled-select clearfix">
+											<select class="wide required" name="uce_provider" onchange="getVals(this, 'provider');">
+												<option value="">Choisir</option>
+												<option value="NetWOrthTel">Networth Telecom</option>
+												<option value="OpenIP">OpenIP</option>
+												<option value="servercom">Servercom</option>
+												<option value="telecomobject">TelecomObject</option>
+												<option value="autre">Autre</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="text" name="uce_provider_other" class="form-control d-none" placeholder="Nom de l'opérateur de trunk" autocomplete="off">
+									</div>
+								</div>
+
 								<div class="submit step">
 									<h3 class="main_question"><strong>Final</strong>Avant d'envoyer</h3>
 									<div class="summary">
 										<ul>
 											<li><strong>1</strong>
-												<h5>Que va t-il ce passer?</h5>
+												<h5>Merci !</h5>
 												<ul>
-													<li>Nous allons regarder les informations envoyées</li>
-													<li>Vérifier que cela respecte bien les pré-requis</li>
-													<li>Prendre rdv avec vous pour participer à votre déploiement</li>
+													<li>Nous vous remerçions pour le temps accordé,</li>
+													<li>Nous allons regarder les informations envoyées avec attention</li>
 												</ul>
 											</li>
 											<li><strong>2</strong>
-												<h5>RDV et Déploiement </h5>
+												<h5>Prise de RDV </h5>
 												<ul>
-													<li>Nous validons que l'aspect fonctionnel attendu est bien présent</li>
-													<li>Nous établissons avec vous un Post-Mortem du déploiement</li>
+													<li>Après avoir cliqué sur "envoyer",</li>
+													<li>Vous allez être redirigé sur une page de prise de RDV en ligne</li>
 												</ul>
 											</li>
-
 										</ul>
 									</div>
 								</div>
@@ -292,14 +329,7 @@
 		<!-- /row-->
 	</div>
 	<!-- /container-fluid -->
-	<div class="cd-overlay-nav">
-		<span></span>
-	</div>
-	<!-- /cd-overlay-nav -->
 
-	<div class="cd-overlay-content">
-		<span></span>
-	</div>
 	<!-- /cd-overlay-content -->
 	
 	<!-- COMMON SCRIPTS -->
@@ -309,9 +339,16 @@
 	<script src="js/functions.js"></script>
 
 	<!-- Wizard script -->
-	<script src="js/survey_func.js"></script>
+	<script src="js/survey_func.js?v=0.2"></script>
 	<script>
 		$(document).ready(function() {
+
+			$('[name="uce_provider"]').on('change',function() {
+				if ($(this).val() == 'autre') {
+					$('[name="uce_provider_other"]').removeClass('d-none');
+				}
+			});
+			$("#location").text("Bienvenue");
 			$("#process").on('click', function (e) {
 				e.preventDefault();
 				$.ajax({
@@ -324,7 +361,11 @@
 						//console.log(r);
 						if (r == true){
 							$("#process, #backward").attr("disabled", true);
-							$("#bottom-wizard").html("<strong>Merci !</strong>");
+							$("#bottom-wizard").html("<strong>Merci :)</strong>");
+							window.open('https://calendly.com/wazo-support/support-deployment','_blank');
+						}
+						else{
+							$("#bottom-wizard").html("<strong>ERREUR !</strong>");
 						}
 					}
 				})
