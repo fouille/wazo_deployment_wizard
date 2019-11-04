@@ -7,11 +7,6 @@ for($count = 0; $count<count($_POST['question_6']); $count++)
     $ports_cloud .= $_POST['question_6'][$count].',';
 }
 
-$ports_premise = '';
-for($count = 0; $count<count($_POST['question_7']); $count++)
-{
-    $ports_premise .= $_POST['question_7'][$count].',';
-}
 $wazo = "fmuller@wazo.io\n";
 $subject = "Wizard Deployment Setup";
 $headers = "From: Wizard Deployment <no-reply@wazo.io>\n";
@@ -31,7 +26,6 @@ $message .= "\nEngine Reseau : " . $_POST['uce_carac_network'];
 $message .= "\nEngine type HDD : " . $_POST['uce_carac_hddtype'];
 $message .= "\nEngine Stockage : " . $_POST['uce_carac_hddsize'];
 $message .= "\nPorts Cloud : " . $ports_cloud;
-$message .= "\nPorts on Premise : " . $ports_premise;
 $message .= "\nProvider Trunk :" . $_POST['uce_provider'] .' '. $_POST['uce_provider_other'];
 //Receive Variable
 
