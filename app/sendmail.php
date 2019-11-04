@@ -14,7 +14,7 @@ for($count = 0; $count<count($_POST['question_7']); $count++)
 }
 $wazo = "fmuller@wazo.io\n";
 $subject = "Wizard Deployment Setup";
-$headers = "From: Wizard Deployment <pbx@wazo.io>\n";
+$headers = "From: Wizard Deployment <no-reply@wazo.io>\n";
 $message = "DETAILS\n";
 $message .= "\nFirst name: " . $_POST['firstname'];
 $message .= "\nLast name: " . $_POST['lastname'];
@@ -38,10 +38,10 @@ $message .= "\nProvider Trunk :" . $_POST['uce_provider'] .' '. $_POST['uce_prov
 //Confirmation page
 $user = "$mail";
 $usersubject = "Merci !";
-$userheaders = "From: Wazo Deployment Wizard <pbx@wazo.io>\n";
+$userheaders = "From: Wazo Deployment Wizard <no-reply@wazo.io>\n";
 /*$usermessage = "Thank you for your time. Your quotation request is successfully submitted.\n"; WITH OUT SUMMARY*/
 //Confirmation page WITH  SUMMARY
-$usermessage = "Bonjour,\n\nMerci pour le temps accordé à notre Wizard de déploiement.\nNous allons analyser cela avec attention, si necessaire nous reviendrons vers vous.\n\nWazo Support\n";
+$usermessage = "Bonjour,\n\nMerci pour le temps accordé à notre outil de déploiement.\nNous allons analyser cela avec attention, si necessaire nous reviendrons vers vous.\n\nWazo Support\n";
 
 if (mail($wazo,$subject,$message,$headers) == true) {
 $send = mail($user,$usersubject,$usermessage,$userheaders);
